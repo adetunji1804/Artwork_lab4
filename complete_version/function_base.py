@@ -73,7 +73,7 @@ def search_available_artwork(artist_id):
         object_artwork.artistId = artist_id
         object_artwork.isSold = True
         #for potrait in Artwork.select().join(Artist).where((Artwork.artistId_id == object_artwork.artistId) and (Artwork.isSold == object_artwork.isSold)):
-        for potrait in Artwork.select().where(Artwork.artistId_id == artist_id and Artwork.isSold == object_artwork.isSold):
+        for potrait in Artwork.select().where(Artwork.artistId_id == artist_id & Artwork.isSold == object_artwork.isSold):
             record.append(potrait)
     except:
         print('Error! Data cannot be retrieved')
